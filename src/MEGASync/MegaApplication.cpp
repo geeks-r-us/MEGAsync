@@ -147,6 +147,11 @@ int main(int argc, char *argv[])
 #endif
 
 #ifdef Q_OS_LINUX
+    if (!unsetenv("SHLVL"))
+    {
+        MegaApi::log(MegaApi::LOG_LEVEL_WARNING, "Error unsetting SHLVL vble");
+    }
+
 #if QT_VERSION >= 0x050600
     qreal ratio = 1;
     int xrdbdpi = 0;
